@@ -1,0 +1,42 @@
+version: '2'
+services:
+ db:
+    image: mysql
+    restart: always    
+    env_file: .env
+    container_name: ${PROJECTNAME}-develop-mysql
+    volumes:
+      - "./mysql:/var/lib/mysql"
+    ports:
+      - "${SQLPORT}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ENVIRONMENT}
+      MYSQL_DATABASE: ${ENVIRONMENT}
+      MYSQL_USER: ${ENVIRONMENT}
+      MYSQL_PASSWORD: ${ENVIRONMENT}
+      TERM: dumb
+      MYSQL_MAX_ALLOWED_PACKET: 1G
+ apps:
+     build: ./docker-files/app
+     env_file: .env
+     privileged: true
+     container_name: ${PROJECTNAME}-${JOB_BASE_NAME}-app
+     hostname: ${PROJECTNAME}${JOB_BASE_NAME}
+     mem_limit: "1G"
+     memswap_limit: "1G"
+     cpuset: "1"
+     depends_on:
+       - db
+     image: teravisiontech/${PROJECTNAME}
+     links:
+       - db
+     ports:
+           - "${HTTPPORT}:80"
+     restart: always
+     environment:
+       DATABASE: ${ENVIRONMENT}
+       DB_USER: ${ENVIRONMENT}
+       DB_PASSWORD: ${ENVIRONMENT}
+       TERM: xterm
+     volumes:
+       - "/home/joseagraz/Escritorio/docker/projects:/var/www/html"
