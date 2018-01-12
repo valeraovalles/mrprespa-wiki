@@ -12,7 +12,7 @@
 
 # Protect against web entry
 if ( !defined( 'MEDIAWIKI' ) ) {
-    exit;
+	exit;
 }
 
 ## Uncomment this to disable output compression
@@ -26,10 +26,10 @@ $wgMetaNamespace = "Mr_Presta";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath = "";
+$wgScriptPath = "/mediawiki";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://wiki.mrpresta.com";
+$wgServer = "http://wiki.mrpresta.com:8000";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -43,8 +43,8 @@ $wgLogo = "$wgResourceBasePath/resources/assets/wiki.png";
 $wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "developers@mrpresta.com";
-$wgPasswordSender = "developers@mrpresta.com";
+$wgEmergencyContact = "apache@wiki.mrpresta.com";
+$wgPasswordSender = "apache@wiki.mrpresta.com";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
@@ -72,7 +72,7 @@ $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
-$wgEnableUploads = true;
+$wgEnableUploads = false;
 #$wgUseImageMagick = true;
 #$wgImageMagickConvertCommand = "/usr/bin/convert";
 
@@ -97,14 +97,14 @@ $wgShellLocale = "C.UTF-8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
 
-$wgSecretKey = "bf93028fea544cf1b19e6229fe7972998f600e6697204e410ffba927d9161312";
+$wgSecretKey = "d1c983c90eb8146eda072717c38ce273a50718d868b09dbfb36a2ed593383321";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "b98bb00cf10d84cb";
+$wgUpgradeKey = "605e6349f0eb0b6b";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -118,9 +118,7 @@ $wgRightsIcon = "";
 $wgDiff3 = "/usr/bin/diff3";
 
 # The following permissions were set based on your choice in the installer
-$wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['*']['edit'] = false;
-$wgGroupPermissions['*']['read'] = false;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
@@ -156,6 +154,10 @@ wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'WikiEditor' );
 
+require_once"./extensions/WikiEditor/WikiEditor.php";
+$wgGroupPermissions['*']['edit'] = false;
+$wgGroupPermissions['*']['read'] = false;
 
 # End of automatically generated settings.
 # Add more configuration options below.
+

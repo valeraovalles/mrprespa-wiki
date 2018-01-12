@@ -18,4 +18,5 @@ services:
        DB_PASSWORD: ${ENVIRONMENT}
        TERM: xterm
      volumes:
-       - "/home/ubuntu/Workspace/mrpresta-wiki/mediawiki:/var/www/html"
+       #- "/home/ubuntu/Workspace/mrpresta-wiki/mediawiki:/var/www/html"
+       - "/home/jvalera/Workspace/mrpresta-wiki/mediawiki:/var/www/html"
