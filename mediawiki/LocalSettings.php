@@ -29,7 +29,7 @@ $wgMetaNamespace = "Mr_Presta";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://wiki.mrpresta.com";
+$wgServer = "https://wiki.mrpresta.com";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
