@@ -13,7 +13,9 @@ a:visited {
      color: #002bb8 !important;
 }
 
-
+#p-cactions .new a {
+	color: #002bb8 !important;
+}
 
 div#column-content {
 	width: 100%;
