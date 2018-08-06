@@ -1,0 +1,52 @@
+{
+	"name": "MrPresta",
+	"author": [
+		"Gabriel Wicke",
+		"..."
+	],
+	"url": "https://www.mediawiki.org/wiki/Skin:MonoBook",
+	"descriptionmsg": "mrpresta-desc",
+	"namemsg": "skinname-mrpresta",
+	"license-name": "GPL-2.0+",
+	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.25.0"
+	},
+	"ValidSkinNames": {
+		"mrpresta": "MrPresta"
+	},
+	"SkinOOUIThemes": {
+		"mrpresta": "Apex"
+	},
+	"MessagesDirs": {
+		"mrpresta": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"skins.monobook.styles": {
+			"position": "top",
+			"styles": {
+				"main.css": {
+					"media": "screen"
+				}
+			}
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "MrPresta"
+	},
+	"ResourceModuleSkinStyles": {
+		"mrpresta": {
+			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.css",
+			"+mediawiki.special.preferences.styles": "skinStyles/mediawiki.special.preferences.styles.less",
+			"+mediawiki.notification": "skinStyles/mediawiki.notification.less"
+		}
+	},
+	"AutoloadClasses": {
+		"SkinMrPresta": "SkinMrPresta.php",
+		"MrPrestaTemplate": "MrPrestaTemplate.php"
+	},
+	"manifest_version": 1
+}

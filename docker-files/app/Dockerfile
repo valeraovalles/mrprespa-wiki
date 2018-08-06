@@ -1,19 +1,16 @@
 # Version: 1
 FROM  ubuntu:16.04
-MAINTAINER Jose Agraz
+MAINTAINER Jhoan Valera
 
 # System Dependencies.
 RUN apt update
 RUN apt install -y nano git apache2 curl
 RUN apt install -y software-properties-common python-software-properties
 
-#####  PHP5.6  #####
+#####  PHP  #####
 RUN apt-get update
-RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && apt-get update && apt-get install -y php5.6
-RUN apt-get install -y php5.6-curl php5.6-pgsql php5.6-intl php5.6-cli libapache2-mod-php5.6 php5.6-apc php5.6-xml php5.6-mysql php5.6-odbc php5.6-mcrypt php5.6-mbstring net-tools iputils-ping zip php5.6-bcmath
-RUN a2enmod php5.6
-RUN service apache2 restart
-RUN update-alternatives --set php /usr/bin/php5.6
+RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && apt-get update && apt-get install -y php
+RUN apt-get install -y php-curl php-pgsql php-intl php-cli libapache2-mod-php php-xml php-mysql php-odbc php-mcrypt php-mbstring net-tools iputils-ping zip php-bcmath
 ####################
 
 #####  SSL #####
